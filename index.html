@@ -364,6 +364,194 @@
         
         @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
         
+        /* NEW STYLES FOR ABOUT AND CONTACT SECTIONS */
+        #about {
+            background-color: var(--eub-light-blue); /* Light blue background */
+        }
+        #contact {
+            background-color: var(--white-color); /* White background */
+        }
+        .pre-order-form {
+            display: grid;
+            gap: 20px;
+            max-width: 700px;
+            margin: 40px auto 0;
+            text-align: left;
+        }
+        .pre-order-form input, .pre-order-form textarea {
+             width: 100%; 
+             padding: 15px; 
+             border: 1px solid var(--eub-grey); 
+             border-radius: 8px; 
+             font-size: 1rem;
+             transition: border-color 0.3s;
+             font-family: var(--font-primary);
+        }
+        .pre-order-form input:focus, .pre-order-form textarea:focus {
+            outline: none; 
+            border-color: var(--eub-blue);
+        }
+/* ========================================
+        NEW REDESIGNED SECTIONS: ABOUT & CONTACT
+        ========================================
+        */
+
+        /* --- New About Us Section Styles --- */
+        #about {
+            background-color: var(--eub-light-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        @media (min-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr 1.1fr; /* Text on left, values on right */
+            }
+        }
+        .about-content h2, .about-content h3 {
+            text-align: left;
+        }
+        .about-content .lead {
+            font-size: 1.15rem;
+            color: var(--eub-text-light);
+            margin-bottom: 30px;
+        }
+        .about-image {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(42, 96, 146, 0.15);
+            margin-top: 40px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .value-card {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(42, 96, 146, 0.15);
+        }
+        .value-card-icon {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 20px;
+            background-color: var(--eub-light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .value-card-icon img {
+            width: 28px;
+            height: 28px;
+        }
+        .value-card h4 {
+            font-family: var(--font-secondary);
+            color: var(--eub-blue);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            max-width: 100%;
+        }
+
+        /* --- New Contact Section Styles --- */
+        #contact {
+            background-color: var(--white-color);
+        }
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 60px;
+            margin-top: 60px;
+            background-color: var(--white-color);
+            border-radius: 20px;
+        }
+        @media (min-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1.2fr 1fr; /* Form on left, info on right */
+                gap: 0;
+                box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            }
+        }
+
+        .contact-form-container {
+            padding: 50px;
+        }
+        .contact-info-card {
+            background: linear-gradient(160deg, var(--eub-blue), #3A4750);
+            color: var(--white-color);
+            padding: 50px;
+            border-radius: 20px;
+        }
+        @media (min-width: 992px) {
+            .contact-info-card {
+                border-radius: 0 20px 20px 0;
+            }
+        }
+        .contact-info-card h3 {
+            color: var(--white-color);
+            margin-bottom: 30px;
+        }
+        .contact-info-card p {
+            color: var(--eub-grey);
+            max-width: 100%;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+        .contact-info-item svg {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+            color: var(--eub-accent-gold);
+        }
+        .contact-info-item a {
+            color: var(--white-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-map {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            object-fit: cover;
+            margin-top: 30px;
+        }
+        /* Overriding form styles for this specific section for better layout */
+        #contact .pre-order-form {
+            margin: 0;
+            max-width: 100%;
+        }
+        #contact .form-group {
+             margin-bottom: 20px;
+        }
+        #contact .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--eub-text-dark);
+            font-size: 0.9rem;
+        }
+
         /* --- Media Queries for Responsive Design --- */
 
         /* Laptops / Desktops */
@@ -379,8 +567,17 @@
             .ingredients-grid { grid-template-columns: repeat(2, 1fr); }
         }
 
-        @media (min-width: 500px) {
+        /* Responsive Form Styles */
+        @media (min-width: 768px) {
              .team-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+             .pre-order-form {
+                grid-template-columns: 1fr 1fr;
+            }
+            .pre-order-form input[placeholder="Subject"],
+            .pre-order-form textarea,
+            .pre-order-form button {
+                grid-column: 1 / -1; /* Make these fields span the full width */
+            }
         }
         
         /* Mobile Devices */
@@ -437,6 +634,11 @@
                 order: -1;
             }
 
+            /* --- FIXED: Center hero buttons on mobile --- */
+            .hero-text .btn {
+                margin: 10px 5px;
+            }
+
             #story { min-height: 250vh; }
         }
     </style>
@@ -448,16 +650,10 @@
 
     <header class="header">
         <a href="#hero" class="logo">
-            <!-- EUB Logo Placeholder -->
             <img src="https://raw.githubusercontent.com/SOILidarity/EUB/8d043129318359980ea964a215d5d6901a3bc679/images/Gemini_Generated_Image_mr1b1gmr1b1gmr1.png" alt="Educator's Universal Bank Logo">
         </a>
         <nav class="nav-links">
-            <a href="#philosophy" class="nav-item">Our Solutions</a> <!-- Changed from Philosophy to Our Solutions -->
-            <a href="#story" class="nav-item">Your Journey</a> <!-- Changed from Story to Your Journey -->
-            <a href="#about" class="nav-item">About Us</a> <!-- New link for About Us -->
-            <a href="#contact" class="nav-item">Contact Us</a> <!-- New link for Contact Us -->
-            <a href="#" id="account-link" class="btn btn-nav">Sign In</a> <!-- Changed from My Account to Sign In -->
-        </nav>
+            <a href="#philosophy" class="nav-item">Our Solutions</a> <a href="#story" class="nav-item">Your Journey</a> <a href="#about" class="nav-item">About Us</a> <a href="#contact" class="nav-item">Contact Us</a> <a href="#" id="account-link" class="btn btn-nav">Sign In</a> </nav>
         <button class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -467,7 +663,6 @@
 
     <main>
         
-        <!-- Hero Section -->
         <section id="hero">
             <div class="hero-bg-shape shape1"></div>
             <div class="hero-bg-shape shape2"></div>
@@ -478,17 +673,15 @@
                         <h1 data-animate-words>EDUCATOR'S UNIVERSAL BANK: Your Financial Foundation.</h1>
                         <p>Dedicated financial solutions for those who build the future. We empower educators with tools for stability, growth, and long-term success.</p>
                         <a href="#philosophy" class="btn">Discover Our Solutions</a>
-                        <a href="#contact" class="btn btn-secondary" style="margin-left: 15px;">Contact an Advisor</a>
+                        <a href="#contact" class="btn btn-secondary">Contact an Advisor</a>
                     </div>
                     <div class="hero-image">
-                         <!-- Hero Image Placeholder -->
                          <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_oo2qzoo2qzoo2qzo.png" alt="Illustrative image of a teacher with financial charts">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- "Why Choose EUB?" Section (replaces Philosophy Section) -->
         <section id="philosophy">
             <div class="container animate-on-scroll fade-in">
                  <h2>Why Educators Trust EUB</h2>
@@ -496,7 +689,6 @@
                  <div class="feature-box-grid">
                     <div class="feature-box animate-on-scroll slide-in-left">
                         <div class="feature-box-icon">
-                            <!-- Icon Placeholder 1: Stylized Gear -->
                             <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_p7u1y4p7u1y4p7u1.png" alt="Tailored Solutions Icon">
                         </div>
                         <h3>Tailored for Teachers</h3>
@@ -504,7 +696,6 @@
                     </div>
                     <div class="feature-box animate-on-scroll fade-in">
                         <div class="feature-box-icon">
-                             <!-- Icon Placeholder 2: Stylized Shield/Lock -->
                              <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_53odoi53odoi53od.png" alt="Secure Your Tomorrow Icon">
                         </div>
                         <h3>Secure Your Tomorrow</h3>
@@ -512,7 +703,6 @@
                     </div>
                     <div class="feature-box animate-on-scroll slide-in-right">
                         <div class="feature-box-icon">
-                             <!-- Icon Placeholder 3: Stylized Upward Arrow/Growth Graph -->
                              <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_4lacpg4lacpg4lac.png" alt="Grow Your Wealth Icon">
                         </div>
                         <h3>Grow Your Wealth</h3>
@@ -522,29 +712,22 @@
             </div>
         </section>
 
-        <!-- Your Journey Section (Animated Scroll Story) -->
         <section id="story">
             <div class="story-sticky-container">
                 <div class="story-text-content">
                      <h2 id="story-text-1" style="opacity: 1;">Starting Your Journey?</h2>
                      <h2 id="story-text-2">Building Your Career?</h2>
                      <h2 id="story-text-3">Securing Your Future?</h2>
-                     <h2 id="story-text-4">Planning Your Legacy?</h2> <!-- Added a 4th phase -->
-                </div>
+                     <h2 id="story-text-4">Planning Your Legacy?</h2> </div>
                 <div class="story-visuals">
-                    <!-- Phase 1: Graduating Student -->
                     <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_1js4h51js4h51js4.png" alt="Graduating student illustration" class="story-illustration phase-1">
-                    <!-- Phase 2: Teacher at Desk -->
                     <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_e0u7bse0u7bse0u7.png" alt="Teacher at desk with open book illustration" class="story-illustration phase-2">
-                    <!-- Phase 3: Teacher with Family/House -->
                     <img src="https://raw.githubusercontent.com/SOILidarity/EUB/16269d37434737d9f89fa43215ecfabab7383ab3/images/Gemini_Generated_Image_24oopw24oopw24oo.png" alt="Teacher with family and house illustration" class="story-illustration phase-3">
-                    <!-- Phase 4: Teacher in Retirement -->
                     <img src="https://raw.githubusercontent.com/SOILidarity/EUB/16269d37434737d9f89fa43215ecfabab7383ab3/images/Gemini_Generated_Image_pahx0jpahx0jpahx.png" alt="Teacher relaxing, retirement themed illustration" class="story-illustration phase-4">
                 </div>
             </div>
         </section>
 
-        <!-- Call to Action Section (replaces Ingredients Section) -->
         <section id="ingredients" class="cta-section">
             <div class="container animate-on-scroll fade-in">
                 <h2>Ready to Plan Your Brighter Tomorrow?</h2>
@@ -553,50 +736,120 @@
             </div>
         </section>
         
-        <!-- Placeholder for other pages, will be populated with separate files -->
-        <!-- These sections are technically hidden by CSS display:none, but their IDs remain for navigation -->
-        <section id="about" style="display: none;">
-             <div class="container">
-                <h2>About Educator's Universal Bank</h2>
-                <p>EUB was founded on the principle that those who dedicate their lives to teaching deserve a financial partner equally dedicated to their success.</p>
-                <h3>Our Commitment to Educators</h3>
-                <p>To empower educators across the nation with accessible, transparent, and tailored financial tools that foster stability, growth, and long-term security. We believe that by investing in our teachers, we invest in the future of our society.</p>
-                <!-- About Us Image Placeholder -->
-                <img src="https://raw.githubusercontent.com/SOILidarity/EUB/16269d37434737d9f89fa43215ecfabab7383ab3/images/Gemini_Generated_Image_4yuet74yuet74yue.png" alt="Diverse group of teachers collaborating" style="max-width: 600px; width: 100%; margin: 30px auto; display: block;">
-                <h3>Our Values</h3>
-                <ul>
-                    <li>Integrity & Transparency</li>
-                    <li>Empowerment Through Education</li>
-                    <li>Long-Term Partnership</li>
-                    <li>Community Focus</li>
-                </ul>
-             </div>
+        <section id="about">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-content animate-on-scroll slide-in-left">
+                        <h2>Built on a Foundation of Trust & Support</h2>
+                        <p class="lead">
+                            Educator's Universal Bank was founded on a simple, powerful principle: those who dedicate their lives to building our future deserve a financial partner equally dedicated to building theirs.
+                        </p>
+                        <h3>Our Commitment to You</h3>
+                        <p>
+                            We strive to empower educators across the nation with accessible, transparent, and tailored financial tools. We believe that by investing in our teachers, we are investing in the very fabric of our society's tomorrow. Your stability, growth, and long-term security are our highest priorities.
+                        </p>
+                        <img src="https://raw.githubusercontent.com/SOILidarity/EUB/16269d37434737d9f89fa43215ecfabab7383ab3/images/Gemini_Generated_Image_4yuet74yuet74yue.png" alt="Diverse group of teachers collaborating" class="about-image">
+                    </div>
+
+                    <div class="about-values animate-on-scroll fade-in" data-stagger-children>
+                        <h3>Our Core Values</h3>
+                        <div class="values-grid">
+                            <div class="value-card">
+                                <div class="value-card-icon">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyQTYwOTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLXNoaWVsZCI+PHBhdGggZD0iTTEyIDIyUzggMTcgOCAxMS41VjVhNCA0IDAgMCAxIDQtNEg0YTQgNCAwIDAgMSAwIDh2Ni41QzQgMTcgMTIgMjIgMTIgMjJaIj48L3BhdGg+PC9zdmc+" alt="Shield Icon"/>
+                                </div>
+                                <h4>Integrity & Transparency</h4>
+                                <p>Clear, honest banking with no surprises. Your trust is our most valuable asset.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-card-icon">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyQTYwOTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWJvb2stb3BlbiI+PHBhdGggZD0iTTIgM3YxNGE0IDQgMCAwIDAgNCA0aDhhNCA0IDAgMCAwIDQtNFYzTTIgM3g4ZTYgNiAwIDAgMSA2IDZ2MTRoOGE2IDYgMCAwIDAtNi02VjNhNiA2IDAgMCAwLTYtNkg4YTYgNiAwIDAgMC02IDZaIj48L3BhdGg+PC9zdmc+" alt="Book Icon"/>
+                                </div>
+                                <h4>Empowerment Through Education</h4>
+                                <p>Providing the financial literacy and tools you need to make confident decisions.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-card-icon">
+                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyQTYwOTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLWhlYXJ0Ij48cGF0aCBkPSJNMjAuODQgNC42MWExLjA5IDEuMDkgMCAwIDAtMy4wOCAwTDEyIDEwLjAxbC01Ljc2LTUuNGExLjA5IDEuMDkgMCAwIDAtMy4wOCAwbC0xLjQyIDEuNDJhMS4wOSAxLjA5IDAgMCAwIDAgMy4wOGw4LjUgOC41Yy4zOS4zOSAxLjAyLjM5IDEuNDEgMGw4LjUgOC41YTEuMDkgMS4wOSAwIDAgMCAwLTMuMDh6Ij48L3BhdGg+PC9zdmc+" alt="Heart Icon"/>
+                                </div>
+                                <h4>Long-Term Partnership</h4>
+                                <p>We're with you at every stage of your career and life, from graduation to retirement.</p>
+                            </div>
+                            <div class="value-card">
+                                <div class="value-card-icon">
+                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMyQTYwOTIiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0iZmVhdGhlciBmZWF0aGVyLXVzZXJzIj48cGF0aCBkPSJNMTcgMjF2LTJhNCA0IDAgMCAwLTQtNEg1YTQgNCAwIDAgMC00IDR2MiI+PC9wYXRoPjxjaXJjbGUgY3g9IjkiIGN5PSI3IiByPSI0Ij48L2NpcmNsZT48cGF0aCBkPSJNMjMgMjF2LTJhNCA0IDAgMCAwLTMtMy44NyI+PC9wYXRoPjxwYXRoIGQ9Ik0xNiAzLjEzYTQgNCAwIDAgMSAwIDcuNzUiPjwvcGF0aD48L3N2Zz4=" alt="Community Icon"/>
+                                </div>
+                                <h4>Community Focus</h4>
+                                <p>Investing in educator communities and fostering a network of support and shared success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="contact" style="display: none;">
+        <section id="contact">
             <div class="container">
-                <h2>Connect With Us</h2>
-                <p>Our dedicated financial advisors are ready to help you plan your next steps. Reach out today!</p>
-                <form class="pre-order-form"> <!-- Reusing form styles for contact -->
-                    <input type="text" placeholder="Your Name" required>
-                    <input type="email" placeholder="Your Email Address" required>
-                    <input type="text" placeholder="Phone Number (Optional)">
-                    <input type="text" placeholder="Subject">
-                    <textarea placeholder="Your Message" rows="5"></textarea>
-                    <button type="submit" class="btn btn-secondary">Send Message</button>
-                </form>
-                <div style="margin-top: 40px; text-align: center;">
-                    <h3>Contact Information</h3>
-                    <p>Email: <a href="mailto:info@eubank.com">info@eubank.com</a></p>
-                    <p>Phone: (123) 456-7890</p>
-                    <p>Address: 123 Education Lane, Learning City, LC 98765</p>
-                    <!-- Map Image Placeholder -->
-                    <img src="https://raw.githubusercontent.com/SOILidarity/EUB/3e3484d67157720505b0d3e361156312b50bacf8/images/Gemini_Generated_Image_3tedyc3tedyc3ted.png" alt="Stylized map highlighting EUB location" style="max-width: 500px; width: 100%; margin: 30px auto; display: block;">
+                <div class="contact-header" style="text-align: center;">
+                    <h2>Let's Plan Your Next Step</h2>
+                    <p style="margin: 0 auto;">Whether you have a question or are ready to get started, our dedicated advisors are here to help. Reach out today.</p>
+                </div>
+
+                <div class="contact-wrapper">
+                    <div class="contact-form-container animate-on-scroll fade-in">
+                        <form class="pre-order-form">
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="contact-name">Full Name</label>
+                                <input type="text" id="contact-name" placeholder="e.g., Jane Doe" required>
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" placeholder="you@example.com" required>
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="contact-subject">Subject</label>
+                                <input type="text" id="contact-subject" placeholder="What can we help you with?" required>
+                            </div>
+                            <div class="form-group" style="grid-column: 1 / -1;">
+                                <label for="contact-message">Your Message</label>
+                                <textarea id="contact-message" placeholder="Please describe your inquiry..." rows="6" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-secondary" style="width: 100%; grid-column: 1 / -1; padding: 18px;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-card animate-on-scroll slide-in-right">
+                        <h3>Contact Information</h3>
+                        <p>Get in touch directly through one of our channels below.</p>
+                        <hr style="border-color: rgba(255,255,255,0.2); margin: 25px 0;">
+                        <div class="contact-info-list">
+                            <div class="contact-info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                <div>
+                                    <strong>Email Us</strong><br>
+                                    <a href="mailto:info@eubank.com">info@eubank.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                                <div>
+                                    <strong>Call Us</strong><br>
+                                    <a href="tel:123-456-7890">(123) 456-7890</a>
+                                </div>
+                            </div>
+                            <div class="contact-info-item">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                                <div>
+                                    <strong>Visit Us</strong><br>
+                                    <span style="color: var(--white-color);">123 Education Lane, Learnington, USA</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- These sections are explicitly hidden by CSS, but included for completeness if they were to be dynamic pages -->
         <section id="counter-section"></section>
         <section id="comparison"></section>
         <section id="calculator"></section>
@@ -605,12 +858,10 @@
         <section id="team"></section>
     </main>
     
-    <!-- Footer -->
     <footer class="footer">
         <div class="container" style="padding: 80px 0;">
             <div class="footer-grid">
                 <div class="footer-column">
-                    <!-- Footer Logo Placeholder -->
                     <img src="https://raw.githubusercontent.com/SOILidarity/EUB/8d043129318359980ea964a215d5d6901a3bc679/images/Gemini_Generated_Image_mr1b1gmr1b1gmr1.png" alt="Educator's Universal Bank Logo" class="footer-logo">
                     <p>Your Blueprint for a Brighter Tomorrow. Empowering educators with dedicated financial solutions.</p>
                 </div>
@@ -638,7 +889,6 @@
         </div>
     </footer>
 
-    <!-- Bank Sign-in Modal (replaces Login Modal) -->
     <div class="modal-overlay" id="login-modal">
         <div class="modal-content">
             <button class="close-modal">&times;</button>
@@ -660,7 +910,6 @@
         </div>
     </div>
 
-    <!-- JavaScript Section -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
